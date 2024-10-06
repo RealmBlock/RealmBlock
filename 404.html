@@ -1,27 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const referrer = document.referrer; // Get the referrer
+  <script src="https://uptime.betterstack.com/widgets/announcement.js" data-id="197802" async="async" type="text/javascript"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-            // Check if the person is visiting directly
-            if (window.location.href === 'https://rainbow-cascaron-a26f71.netlify.app/' && referrer === '') {
-                window.location.href = 'https://api.realmblock.co/403';
-            }
+    body {
+      background-color: var(--color--background-main, #08090A);
+      color: var(--color--text-sub, #ffffffb3);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -.01em;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-            // Check if the person is visiting from realmblock.co
-            if (referrer.includes('realmblock.co')) {
-                window.location.href = 'https://realmblock.co/login';
-            }
-        });
-    </script>
+    .content {
+      text-align: center;
+    }
+
+    .loader {
+      border: 8px solid #f3f3f3; /* Light grey */
+      border-top: 8px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .status-badge {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const referrer = document.referrer; // Get the referrer
+
+      if (window.location.href === 'https://rainbow-cascaron-a26f71.netlify.app' && referrer === '') {
+        window.location.href = 'https://api.realmblock.co/403';
+      }
+      if (referrer.includes('realmblock.co')) {
+        window.location.href = 'https://realmblock.co/login';
+      }
+    });
+  </script>
 </head>
 <body>
-    <!-- Your page content -->
-    <h1>Welcome to API RealmBlock</h1>
+  <div class="content">
+    <div class="loader"></div>
+    <div class="status-badge">
+      <iframe src="https://status.realmblock.co/badge?theme=dark" width="250" height="30" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
 </body>
 </html>
